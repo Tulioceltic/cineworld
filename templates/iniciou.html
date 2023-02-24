@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Cine Landia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{url_for('static',filename='js/jquery-1.4.2.min.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/cufon-yui.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/cufon-replace.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/Gill_Sans_400.font.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/script.js')}}" type="text/javascript"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="{{url_for('static',filename='js/ie_png.js')}}"></script>
+<script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+{%if typeU=='Usuario'%}
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Cine <span>Landia</span></a></div>
+          <div class="fleft"><a href="#">Hola <span>{{nombre}}</span></a></div>
+          <ul>
+          <form action="/" method="post">
+            <div>fichas <div>{{fichas}}</div> </div>
+            <input type="submit" value="Salir" class="envio">
+          </form>
+        </ul>
+        </div>
+        <div class="row-2">
+          <ul>
+            <li><a href="{{url_for('iniciou')}}" class="active">Home</a></li>
+            <li><a href="{{url_for('aboutUs')}}">About</a></li>
+            <li class="last"><a href="{{url_for('contact')}}">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                <h3><b>Estrenos</b></h3>
+                <div class="img-box1"><img src="{{url_for('static',filename='images/1page-img1.jpg')}}" alt="" />Sinopsis pelicula</div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <h3><span>Movies</span></h3>
+          <ul class="movies">
+            {%for u in peliculas%}
+              <li>
+              {%for i,v in u.items()%}
+                {%if i=='titulo'%}
+                <h4>{{v}}</h4>
+                <div class="wrapper" ><a class="link2" href="{{url_for('mostrarmas',peli=v)}}"><span><span>Ver mas</span></span></a></div>  
+                {%endif%}
+                {%if i=='ruta'%}
+                <img src="{{v}}" alt="" />
+                {%endif%}
+                {%if i=='sinopsis'%}
+                <p>{{v}}</p>
+                {%endif%}
+              {%endfor%}
+              </li>
+            {%endfor%}
+            <li class="clear">&nbsp;</li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="left">
+          <div class="right">
+            <div class="footerlink">
+              <p class="lf">Copyright &copy; 2022 <a href="#">SiteName</a> - All Rights Reserved</p>
+              <p class="rf">Diseñado por: <br> Julio Cesar Bernal Pineda - 20171020014<br>
+                David Camilo Franco Rodriguez - 20171020090<br>
+                Cristian David Rodriguez Lopez - 20171020072
+                </p>
+              <div style="clear:both;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+{%endif%}
+{%if typeU=='Admin'%}
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Cine<span>Landia</span></a></div>
+          <div class="fleft"><a href="#">Hola <span>{{nombre}}</span></a></div>
+          <ul>
+          <form action="/" method="post">
+            <input type="submit" value="Salir" class="envio">
+          </form>
+        </ul>
+        </div>
+        <div class="row-2">
+          <ul>
+            <li><a href="{{url_for('iniciou')}}" class="active">Home</a></li>
+            <li><a href="{{url_for('newSala')}}">Añadir Sala</a></li>
+            <li><a href="{{url_for('empleado')}}">Empleados</a></li>
+          </ul>
+        </div>
+    </div>
+    <br>
+    <div class="salas">
+      <br>
+          {%for i in cantidad%}
+            <div class="sala" id="{{i}}"><a href="{{url_for('versala',sala=i)}}">sala{{i}}</a></div>
+            <br>
+          {%endfor%}
+      </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="left">
+    <div class="right">
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2022 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Diseñado por: <br> Julio Cesar Bernal Pineda - 20171020014<br>
+          David Camilo Franco Rodriguez - 20171020090<br>
+          Cristian David Rodriguez Lopez - 20171020072
+          </p>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+{%endif%}
+{%if typeU=='Taquilla'%}
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Cine<span>Landia</span></a></div>
+          <div class="fleft"><a href="#">Hola <span>{{nombre}}</span></a></div>
+          <ul>
+          <form action="/" method="post">
+            <input type="submit" value="Salir" class="envio">
+          </form>
+        </ul>
+        </div>
+    </div>
+    <br>
+    <div class="salas">
+      <br>
+          {%for i in cantidad%}
+            <div class="sala" id="{{i}}"><a href="{{url_for('versala',sala=i)}}">sala{{i}}</a></div>
+            <br>
+          {%endfor%}
+      </div>
+  </div>
+</div>
+</body>
+<div id="footer">
+  <div class="left">
+    <div class="right">
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2022 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Diseñado por: <br> Julio Cesar Bernal Pineda - 20171020014<br>
+          David Camilo Franco Rodriguez - 20171020090<br>
+          Cristian David Rodriguez Lopez - 20171020072
+          </p>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+</html>

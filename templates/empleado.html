@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{url_for('static',filename='js/jquery-1.4.2.min.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/cufon-yui.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/cufon-replace.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/Gill_Sans_400.font.js')}}" type="text/javascript"></script>
+<script src="{{url_for('static',filename='js/script.js')}}" type="text/javascript"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="{{url_for('static',filename='js/ie_png.js')}}"></script>
+<script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+</head>
+<body>
+	<div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Cine <span>Landia</span></a></div>
+          <div class="fleft"><a href="#">Hola <span>{{nombre}}</span></a></div>
+		  <ul>
+			<form action="/" method="post">
+			  <input type="submit" value="Salir" class="envio">
+			</form>
+			<form action="/inicio" method="post">
+				<input type="submit" value="Atras" class="envio">
+			  </form>
+		  </ul>
+        </div>
+    </div>
+	<div class="containter my-5">
+		<form class="formulario" action="inicio" method="post">
+			
+			<label for="id">Id</label>
+			<input type="TEXT" name="Identifiacion" placeholder="Identifiacion">
+			<label for="id">Nombre</label>
+			<input type="TEXT" id="Nombre_Estudiante" name="Nombre" placeholder="Nombre">
+			<label for="id">Apellido</label>
+			<input type="TEXT" name="Apellido" placeholder="Apellido">
+			<label for="id">Edad</label>
+			<input type="TEXT" name="Edad" placeholder="Edad">
+			<label for="id">Direccion</label>
+			<input type="TEXT" name="Direccion" placeholder="Direccion">
+			<button type="submit" value="Enviar"  class="boton">Enviar</button>	
+			
+		</form>
+		<div id="footer">
+			<div class="left">
+			  <div class="right">
+				<div class="footerlink">
+				  <p class="lf">Copyright &copy; 2022 <a href="#">SiteName</a> - All Rights Reserved</p>
+				  <p class="rf">Diseñado por: <br> Julio Cesar Bernal Pineda - 20171020014<br>
+					David Camilo Franco Rodriguez - 20171020090<br>
+					Cristian David Rodriguez Lopez - 20171020072
+					</p>
+				  <div style="clear:both;"></div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+</body>
+</html>
